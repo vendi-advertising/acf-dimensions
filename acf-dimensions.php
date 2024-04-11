@@ -17,60 +17,29 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
 // Define.
-define( 'ACF_DIMENSIONS_VERSION', '1.0.4' );
-define( 'ACF_DIMENSIONS_BASENAME', basename( dirname( __FILE__ ) ) );
-define( 'ACF_DIMENSIONS_DIR', rtrim( plugin_dir_path( __FILE__ ), '/' ) );
-define( 'ACF_DIMENSIONS_URL', rtrim( plugin_dir_url( __FILE__ ), '/' ) );
+const ACF_DIMENSIONS_VERSION = '1.0.4';
+define('ACF_DIMENSIONS_BASENAME', basename(__DIR__));
+define('ACF_DIMENSIONS_DIR', rtrim(plugin_dir_path(__FILE__), '/'));
+define('ACF_DIMENSIONS_URL', rtrim(plugin_dir_url(__FILE__), '/'));
 
-if ( ! class_exists( 'NS_ACF_Plugin_Dimensions' ) ) :
+add_action(
+	'acf/include_field_types',
+	static function () {
+		load_plugin_textdomain('acf-dimensions');
 
-	/**
-	 * Main class.
-	 *
-	 * @since 1.0.0
-	 */
-	class NS_ACF_Plugin_Dimensions {
+		require_once ACF_DIMENSIONS_DIR.'/fields/class-ns-acf-field-dimensions-v5.php';
 
-		/**
-		 * Settings.
-		 *
-		 * @var array
-		 *
-		 * @since 1.0.0
-		 */
-		protected $settings;
+		$settings = array(
+			'version' => ACF_DIMENSIONS_VERSION,
+			'url' => plugin_dir_url(__FILE__),
+			'path' => plugin_dir_path(__FILE__),
+		);
 
-		/**
-		 * Constructor.
-		 *
-		 * @since 1.0.0
-		 */
-		public function __construct() {
-			$this->settings = array(
-				'version' => ACF_DIMENSIONS_VERSION,
-				'url'     => plugin_dir_url( __FILE__ ),
-				'path'    => plugin_dir_path( __FILE__ ),
-			);
-
-			add_action( 'acf/include_field_types', array( $this, 'include_field' ) );
-		}
-
-		/**
-		 * Include field.
-		 *
-		 * @since 1.0.0
-		 */
-		public function include_field() {
-			load_plugin_textdomain( 'acf-dimensions' );
-
-			require_once ACF_DIMENSIONS_DIR . '/fields/class-ns-acf-field-dimensions-v5.php';
-		}
+		new NS_ACF_Field_Dimensions($settings);
 	}
-
-	new NS_ACF_Plugin_Dimensions();
-endif;
+);
