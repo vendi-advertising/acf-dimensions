@@ -1,0 +1,15 @@
+{
+    "name": "vendi-advertising/acf-dimensions",
+    "description": "ACF Dimensions provides dimension field to enter CSS values like margin or padding.",
+    "type": "library",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Nilambar Sharma"
+        },
+        {
+            "name": "Chris Haas",
+            "email": "chris@vendiadvertising.com"
+        }
+    ]
+}
