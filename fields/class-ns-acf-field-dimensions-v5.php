@@ -57,6 +57,13 @@ class NS_ACF_Field_Dimensions extends acf_field
         // Settings.
         $this->settings = $settings;
 
+//        $this->env = array(
+//            'url'     => site_url( str_replace( ABSPATH, '', __DIR__ ) ), // URL to the acf-FIELD-NAME directory.
+//            'version' => '1.0', // Replace this with your theme or plugin version constant.
+//        );
+
+//        $this->preview_image
+
         // Call parent constructor.
         parent::__construct();
     }

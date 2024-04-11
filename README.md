@@ -64,3 +64,8 @@ Nice, make a post on the [Plugin Repo](https://github.com/ernilambar/acf-dimensi
 ## Upgrade Notice
 
 ACF Dimensions
+
+## Attributions
+
+* Broken Link by HDM from <a href="https://thenounproject.com/browse/icons/term/broken-link/" target="_blank" title="Broken Link Icons">Noun Project</a> (CC BY 3.0)
+* link by HDM from <a href="https://thenounproject.com/browse/icons/term/link/" target="_blank" title="link Icons">Noun Project</a> (CC BY 3.0)
